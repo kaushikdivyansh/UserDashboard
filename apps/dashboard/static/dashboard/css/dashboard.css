@@ -1,0 +1,81 @@
+*{
+  padding:0;
+  margin:0;
+  font-size: 20px;
+  font-style: bold;
+  /* outline: 1px solid black; */
+  color:white;
+}
+
+body{
+  background-image: url('../img/campus.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.checklists{
+  width:44%;
+  display:inline-block;
+  vertical-align: top;
+  margin:2vw;
+}
+
+.selectOption{
+  color: #282828;
+}
+.navbar{
+  background-color: #424242;
+  border-radius:0 !important;
+}
+
+.drk-btn{
+  border:none;
+  width:15vw;
+  text-align: center;
+  padding: 0.5vw;
+  border-radius: .5vw;
+  font-size: 1.5vw;
+  background-color: #424242;
+  font-weight:400;
+  color:white;
+}
+
+.blue-btn{
+  border:none;
+  width:15vw;
+  text-align: center;
+  padding: 0.5vw;
+  border-radius: .5vw;
+  font-size: 1.5vw;
+  margin-top:1.5vw;
+}
+
+.form{
+  width:44%;
+  display:inline-block;
+  margin:2vw;
+}
+
+.container{
+  width:80vw;
+  background-color:rgba(0, 0, 0, 0.7);
+  margin:2vw auto;
+  border-radius: 0.5vw;
+  text-align: center;
+}
+
+.container p{
+  text-align: left;
+}
+
+#task-h1{
+  background-color:rgba(0, 0, 0, 0.7);
+  color:white;
+}
+
+label{
+  font-weight: 400;
+  /* margin: */
+}

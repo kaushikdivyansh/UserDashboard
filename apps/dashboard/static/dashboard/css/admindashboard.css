@@ -1,0 +1,52 @@
+
+body{
+  background-image: url('../img/book_shelves.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.container{
+  margin-top: 10px;
+}
+
+h1, h4{
+  color: white;
+}
+.adminInput{
+  /* outline: dotted 5px salmon; */
+  /* vertical-align: center; */
+  background-color: #E6E6E6;
+  border-radius: 20px;
+  padding: 20px;
+
+}
+
+.addedDetailCollege{
+  /* overflow: scroll; */
+  /* height: 200px; */
+}
+
+.adminTab{
+  background-color: #E6E6E6;
+  border-radius: 20px;
+  padding: 20px;
+
+}
+
+.collegeTab{
+  overflow: scroll;
+  height: 500px;
+}
+.formSubmit{
+  display: inline-block;
+
+}
+
+
+.adminTab{
+  margin-top: 4%;
+}
+

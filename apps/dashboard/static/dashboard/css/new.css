@@ -1,0 +1,15 @@
+.inline{
+  display: inline-block;
+}
+.retDash{
+  text-align: right;
+  margin-left: 88%;
+  margin-bottom: 2%;
+}
+.AddNewForm{
+  margin: 5% 25%;
+}
+
+body{
+  background: grey;
+}

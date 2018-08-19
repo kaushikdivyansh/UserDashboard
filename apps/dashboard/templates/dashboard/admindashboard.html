@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="stuff.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href={% static "dashboard/css/admindashboard.css" %}>
+
+    <script>
+        var collegeData = [1,2,34,4,6,32,53,2,324,34,3,1];
+
+        for (i in range (1, len(collegeData)));
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#addDetailCollege").click(function(){
+                $(".addedDetailCollege").prepend(" <b>This is the Appended addDetailCollege</b> <br>");
+            });
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $(".editButton").click(function() {
+                $('html,body').animate({
+                    scrollTop: $(".container").offset().top},
+                    'slow');
+            });
+        });
+
+    </script>
+
+    <title>Admin</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Welcome Admin!</h1><br>
+        <h4>Please fill out an option: </h4> <br>
+
+        <div class="adminInput d-flex justify-content-around">
+
+            <div class="formSubmit">
+                <h2>College</h2><br><br>
+
+                <form action="/adminCollegeTab" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">College Name:</label>
+                        <input class="form-control" type="text" name='name'>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input class="form-control mb-2" type="text" name='city'>
+                    </div>
+                    <div class="form-group">
+                            <label for="state">State:</label>
+                            <input class="form-control mb-2" type="text" name='state'>
+                        </div>
+                    <input class="btn-primary scrollToBottomTable" name="collegeLocationText" type="submit" value='Submit'>              
+                </form>
+
+            </div>
+
+            <div class="formSubmit">
+                <h2>Tasks</h2><br>
+                <form action="/adminTaskTab" method="post">
+                    {% csrf_token %}
+                    <select name="college" id="">
+                        {% for college in colleges %}
+                            <option value="{{college.id}}">{{college.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input class="form-control mb-2" type="text" name='title'>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Deadline:</label>
+                        <input class="form-control mb-2" type="date" name='deadline'><br><br><br>
+                    </div>
+                    <input class="btn-primary scrollToBottomTable" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+
+<div class="adminTab">
+
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">College</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-tasks-tab" data-toggle="pill" href="#pills-tasks" role="tab" aria-controls="pills-tasks" aria-selected="false">Tasks</a>
+                </li>
+
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <h2>College</h2>
+
+                    <div class="collegeTab"> 
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">College</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Options</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                    {% for college in colleges %}
+                                        <tr>
+                                            <td>{{college.name}}</td>
+                                            <td>{{college.city}}, {{college.state}}</td>
+                                            <td> 
+                                                <button class="editButton btn btn-primary">Edit</button> | <button class="btn btn-danger">Delete</button>
+                                            </td>
+                                         </tr>
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-tasks" role="tabpanel" aria-labelledby="pills-tasks-tab">
+                    <h2>Tasks</h2>
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope='col'>College</th>
+                                <th scope="col">Task</th>
+                                <th scope="col">Deadline</th>
+                                <th scope='col'>Options</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for task in tasks %}
+                                <tr>
+                                    <td>{{task.college.name}}</td>
+                                    <td>{{task.title}}</td>
+                                    <td>{{task.deadline}}</td>
+                                    <td><button class="editButton btn btn-primary">Edit</button> | <button class="btn btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                        
+                </div>
+            </div> 
+        </div>
+    </div> 
+
+</body>
+
+
+</html>
+

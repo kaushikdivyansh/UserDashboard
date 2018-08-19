@@ -1,0 +1,29 @@
+.userform{
+  margin: 5%;
+}
+
+#infoform,#pwdform {
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+  margin: 2%;
+  border: 1px solid black;
+  padding: 2%;
+}
+
+.inline{
+  display: inline-block;
+}
+
+.retDash{
+  text-align: right;
+  margin-left: 85%;
+}
+
+body{
+  background: grey;
+}
+
+.classred{
+  color: red;
+}

@@ -1,0 +1,66 @@
+*{
+    font-size: 20px;
+    font-style: bold;
+}
+
+.important_deadline {
+    margin-right: 20px;
+    width: 48%;
+    vertical-align: top;
+    display:inline-block;
+}
+.thingsToDo{
+
+    width: 48%;
+    vertical-align: top;
+    display:inline-block;
+}
+button {
+    margin: 10px;
+}
+.thead_color {
+    background: rgb(53, 52, 52);
+    z-index: -1;
+    color: white;
+}
+
+.sub_button{
+    font-size: 15px;
+    font-weight: bold;
+
+    background: linear-gradient(#88BDDB, #88BDDB, #479AC8 100%, #479AC8 100%);
+    background-size: 100% 200%;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    margin: 5px auto;
+}
+
+.sub_button:hover{
+    background-position: 200% 100%;
+    /* transform: scale(1.1);  */
+}
+
+.navbar{
+    color:white;
+    background: rgb(53, 52, 52);
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    margin: 0px;
+}
+
+nav span{
+    background: linear-gradient(transparent, transparent, #479AC8 100%, #479AC8 100%);
+    background-size: 100% 200%;
+    transition: all 0.3s ease-in-out;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+nav span:hover{
+    background-position: 200% 100%;
+    transform: scale(1.3);
+}
+
+

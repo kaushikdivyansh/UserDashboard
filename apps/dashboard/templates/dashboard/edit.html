@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  {% load static %}
+  <link rel="stylesheet" href={% static "dashboard/css/edit.css" %}>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">TestApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link active" href="#">Profile<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+  <a class="btn btn-outline-success my-2 my-sm-0 buts" href="/logout" type="submit">Sign Off</a>
+  </nav>
+
+  <div class="userform">
+    <h4 class="inline">Edit User #{{user.id}}!</h4>
+    <a class="btn btn-secondary retDash inline" href="/dashboard">Return To Dashboard</a>
+
+
+    <!-- <button class="btn btn-primary" type="button" name="regbut">Register</button> -->
+    <form id= "infoform" action="/{{user.id}}/userinfoVal" method='POST'>
+      {% csrf_token %}
+      <h5>Edit Information</h5>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" value="{{user.first_name}}">
+        {% if messages %}
+          {% for message in messages %}
+            {% if 'firstname' in message.tags %}
+            <span class= "classred" > {{ message }}</span>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" value="{{user.last_name}}">
+      {% if messages %}
+      {% for message in messages %}
+        {% if 'lastname' in message.tags %}
+          <span class="classred">{{ message }}</span>
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Gender</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" value="{{user.last_name}}">
+      {% if messages %}
+      {% for message in messages %}
+        {% if 'lastname' in message.tags %}
+          <span class="classred">{{ message }}</span>
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="userlevel">User Level</label>
+        <select class="user_level form-control" name="userLevel" id="userlevel" value="user.userlevel">
+          <option selected>Choose...</option>
+          <option value="1">Admin</option>
+          <option value="2" selected="selected">User</option>
+        </select>
+      </div> -->
+
+      <button type="submit" class="btn btn-primary">Edit User</button>
+    </form>
+
+
+    <form id="pwdform" action="/{{user_id}}/userpwdVal" method="post">
+
+    <h5>Edit password</h5>
+
+      <div class="form-group">
+        <label for="Password1">Password</label>
+        <input type="password" class="form-control" id="Password1" name="pwd" >
+        {% if messages %}
+        {% for message in messages %}
+          {% if 'pwd' in message.tags %}
+            <span class="classred">{{ message }}</span>
+          {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+            <label for="confPassword1">Confirm Password</label>
+            <input type="password" class="form-control" id="confPassword1" name="confpwd">
+            {% if messages %}
+            {% for message in messages %}
+              {% if 'confpwd' in message.tags %}
+                <span class="classred">{{ message }}</span>
+              {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Password</button>
+      </form>
+    </div>
+  </div>
+
+
+</body>
+</html>

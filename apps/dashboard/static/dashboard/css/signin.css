@@ -1,0 +1,94 @@
+
+*{
+  margin:0;
+  padding:0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #eee;
+  outline: 1px solid white;
+}
+body{
+  background-image: url(images/gate.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+input{
+  display: block;
+  font-size:1.5vw !important;
+}
+
+label{
+  font-weight: 400;
+}
+
+
+.bottom{
+  margin-top: 75px;
+}
+
+.container, form{
+  text-align: center;
+}
+
+.navbar{
+  background-color: #424242;
+  width: 100%;
+  margin: 0px;
+  border-radius:0 !important;
+}
+
+
+a{
+  color: rgb(75, 75, 75) !important;
+}
+
+h1{
+  font-size: 130px;
+  color: white;
+}
+
+.blue-btn{
+  border:none;
+  width:15vw;
+  text-align: center;
+  padding: 0.5vw;
+  border-radius: .5vw;
+  font-size: 1.5vw;
+  margin-top:1.5vw;
+}
+
+.drk-btn{
+  border:none;
+  width:10vw;
+  text-align: center;
+  padding: 0.5vw;
+  border-radius: .5vw;
+  font-size: 1.5vw;
+  background-color: #424242;
+  font-weight:400;
+}
+
+.double-form-col{
+  /* width:35vw; */
+  display:inline-block;
+  vertical-align: top;
+  padding:1vw;
+  margin:2vw;
+}
+
+.form-holder{
+  background-color:rgba(0, 0, 0, 0.7);
+  border-radius:0.5vw;
+  margin:2vw auto;
+  height:80vh;
+  padding-top:2vw;
+}
+
+.form-holder h1{
+  font-size:3.5vw;
+}
+
+.form-holder h2{
+  font-size:2.5vw;
+}

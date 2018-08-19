@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href={% static "dashboard/css/dashboard.css" %}>
+
+    <style>
+        .jumbotron {
+            background-color: white;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+    </style>
+    
+  </head>
+  <body>
+
+      <nav class="navbar">
+          <button onclick="location.href='landing.html';" class="drk-btn">Home</button>
+          <button onclick="location.href='about.html';" class="drk-btn">Find your Mentor</button>
+          <button onclick="location.href='mentor.html';" class="drk-btn">Settings</button>
+          <button onclick="location.href='resources.html';" class="drk-btn">Resources</button>
+          <button onclick="location.href='/logout';" class="drk-btn">Logout</button>
+      </nav>
+
+
+      <h1 id="task-h1" class="display-1">Welcome to FConnect!</h1>
+
+      <div class="container">
+          <div class="form">
+              <h1>Edit your profile</h1>
+              <form action='/userInfoVal' method='post'>
+                {% csrf_token %}
+                  <label for="firstName">First Name:</label>
+                  <input class="form-control" type="text" name='firstName' value="{{user.firstName}}">
+                  <label for="lastName">Last Name:</label>
+                  <input class="form-control"type="text" name='lastName' value="{{user.lastName}}">
+                  <label for="birthday">Birthday:</label>
+                  <input class="form-control" type="date" placeholder="{{user.birthday}}" name='birthday' value="{{user.birthday}}">
+                  <label for="address">Address:</label>
+                  <input class="form-control" type="text" name='address' value="{{user.address}}">
+                  <label for="city">City:</label>
+                  <input class="form-control" type="text" name='city' value="{{user.city}}">
+                  <label for="state">State:</label>
+                  <input class="form-control" type="text" name='state' value="{{user.state}}">
+                  <label for="schoolState">School State:</label>
+                  <input class="form-control" type="text" name='schoolState' value="{{user.schoolState}}">
+                  <label for="major">Major:</label>
+                  <input class="form-control" type="text" name='major' value="{{user.major}}">
+                  <label for="schoolName">School Name:</label>
+                  <input class="form-control" type="text" name='schoolName' value="{{user.schoolName}}">
+                  <label for="gender">Gender:</label>
+                  <input class="form-control" type="text" name='gender' value="{{user.gender}}">
+                  <button class="btn-primary blue-btn">Save</button>
+              </form>
+        </div>
+        <div class="checklists">
+            <div class="formSubmit">
+                <h2>Find Tasks</h2>
+                <form action="/addChecklist" method="post">
+                    {% csrf_token %}
+                    <select class="selectOption" name="college" id="">
+                        {% for college in colleges %}
+                            <option value="{{college.id}}">{{college.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="btn btn-primary" type="submit" value="Find">
+                </form>
+            </div>
+            <br>
+            <br>
+            <div>
+                <div class="formSubmit">
+                    <h2>Tasks</h2>
+                    <form action="/updateChecklist" method="post">
+                        {% csrf_token %}
+                        {% for task in checklist %}
+                            {% if task.is_completed %}
+                            <input type="checkbox" name='{{task.id}}' checked><span style='text-decoration: line-through;'>{{task.college.name}} -- {{task.deadline}}:  {{task.title}} </span><br>
+                            {% else %}
+                            <input type="checkbox" name='{{task.id}}'><span>{{task.college.name}} -- {{task.deadline}}:  {{task.title}} </span><br>
+                            {% endif %}
+                        {% endfor %}
+                        <input class="btn btn-primary" type="submit" value="Save">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

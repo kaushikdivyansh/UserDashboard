@@ -1,0 +1,91 @@
+
+
+*{
+    /* outline: 1px solid white; */
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0.9);
+    color:white;
+}
+img{
+    height:100vh;
+}
+
+h1{
+    font-family: 'Lato', sans-serif;
+    font-size:5vw;
+}
+
+h2{
+    font-family: 'Lato', sans-serif;
+    font-size:2vw;
+}
+
+h3{
+    font-family: 'Lato', sans-serif;
+}
+
+button{
+    font-size: 1.5vw;
+    width:17vw;
+}
+
+
+
+.header{
+    width:100%;
+    height:20vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: absolute;
+    top:0px;
+    left:0px;
+}
+
+
+
+.logo{
+    vertical-align: top;
+    width:74%;
+    display: inline-block;
+    padding-left: 20vw;
+}
+
+.logo h1{
+    font-family: 'Lato', sans-serif;
+    color:white;
+    text-shadow: 1.5px 1.5px black;
+}
+
+.logo h2{
+    font-family: 'Lato', sans-serif;
+    color:white;
+    text-shadow: 1.5px 1.5px black;
+}
+
+.buttons{
+    vertical-align: top;
+    display: inline-block;
+    width:20%;
+    padding:1vw;
+}
+
+.capt{
+    margin-bottom: 5vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius:0.5vw;
+    text-shadow: 1.5px 1.5px black;
+}
+
+.blue-btn{
+    border:none;
+    width:15vw;
+    text-align: center;
+    padding: 0.5vw;
+    border-radius: .5vw;
+    font-size: 1.5vw;
+    margin:0.5vw 0vw;
+}
